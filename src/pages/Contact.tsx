@@ -2,27 +2,22 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Logo } from "@/components/layout/Logo";
-import { MapPin, Phone, Mail, MessageCircle, Send } from "lucide-react";
+import { MapPin, Mail, Send } from "lucide-react";
 import { toast } from "sonner";
 
 const contactInfo = [
   {
     icon: MapPin,
     title: "Our Office",
-    details: ["Bangalore, Karnataka", "India"],
-  },
-  {
-    icon: Phone,
-    title: "Phone",
-    details: ["+91 9703164064"],
+    details: ["A BLK, Ittina Limited Glass Factory Layout", "Electronic City Phase 2, Bangalore", "Karnataka 560100, India"],
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["info@thrayanatechnologies.in"],
+    details: ["sales@thrayana.com"],
   },
 ];
 
@@ -30,7 +25,6 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
     subject: "",
     message: "",
   });
@@ -48,13 +42,9 @@ const Contact = () => {
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     toast.success("Message sent successfully! We'll get back to you soon.");
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    setFormData({ name: "", email: "", subject: "", message: "" });
     setIsSubmitting(false);
   };
-
-  const whatsappUrl = `https://wa.me/919703164064?text=${encodeURIComponent(
-    `Hi Thrayana Technologies, I would like to know more about your services.\n\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`
-  )}`;
 
   return (
     <div className="min-h-screen bg-background">
@@ -121,18 +111,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">Phone</label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
-                        placeholder="+91 XXXXX XXXXX"
-                      />
-                    </div>
+                  <div className="grid md:grid-cols-1 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Subject</label>
                       <input
@@ -176,19 +155,6 @@ const Contact = () => {
                         </>
                       )}
                     </motion.button>
-
-                    <motion.a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="px-8 py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition-all duration-300"
-                      style={{ background: "linear-gradient(135deg, #25D366 0%, #128C7E 100%)", color: "white" }}
-                    >
-                      <MessageCircle className="w-5 h-5" />
-                      WhatsApp
-                    </motion.a>
                   </div>
                 </form>
               </div>
@@ -227,24 +193,6 @@ const Contact = () => {
                     </motion.div>
                   ))}
                 </div>
-
-                {/* Quick Contact CTA */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="gradient-cta rounded-2xl p-8 text-center"
-                >
-                  <h3 className="text-xl font-bold text-white mb-2">Prefer a Quick Chat?</h3>
-                  <p className="text-white/80 mb-4">Connect with us on WhatsApp for instant responses</p>
-                  <a
-                    href="https://wa.me/919703164064?text=Hi%20Thrayana%20Technologies,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-white/90 transition-colors"
-                  >
-                    <MessageCircle className="w-5 h-5" />
-                    Chat on WhatsApp
-                  </a>
-                </motion.div>
               </div>
             </AnimatedSection>
           </div>
@@ -263,8 +211,9 @@ const Contact = () => {
                 </div>
                 <h3 className="text-3xl font-bold text-foreground mb-4">Location</h3>
                 <div className="space-y-2">
-                  <p className="text-xl font-semibold text-foreground">Bangalore, Karnataka</p>
-                  <p className="text-muted-foreground text-lg">India</p>
+                  <p className="text-xl font-semibold text-foreground">A BLK, Ittina Limited</p>
+                  <p className="text-muted-foreground text-md">Glass Factory Layout, Electronic City Phase 2</p>
+                  <p className="text-muted-foreground text-md">Bangalore Urban, Karnataka 560100</p>
                 </div>
                 <div className="mt-8 pt-8 border-t border-border w-full flex flex-col items-center lg:items-start gap-4">
                   <p className="text-sm text-muted-foreground italic">
@@ -277,7 +226,7 @@ const Contact = () => {
               <div className="h-[400px] lg:h-auto min-h-[400px] relative">
                 <iframe
                   title="Thrayana Technologies Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.88653920972!2d77.49085817290038!3d12.953847731295988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e07%3A0xf8dfad3685100ef!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1709635000000!5m2!1sen!2sin"
+                  src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=A%20BLK,%20ITTINA%20LIMITED%20GLASS%20FACTORY%20LAYOUT,%20ELECTRONIC%20CITY%20PHASE2,%20BANGALORE%20560100&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -293,7 +242,7 @@ const Contact = () => {
       </section>
 
       <Footer />
-      <WhatsAppButton />
+
     </div>
   );
 };

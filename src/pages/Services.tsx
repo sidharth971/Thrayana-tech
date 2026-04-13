@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+
 import { SectionTitle } from "@/components/SectionTitle";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { CTASection } from "@/components/CTASection";
@@ -275,7 +275,7 @@ const Services = () => {
 
       <CTASection />
       <Footer />
-      <WhatsAppButton />
+
     </div>
   );
 };

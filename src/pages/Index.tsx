@@ -1,10 +1,11 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+
 import { HeroSection } from "@/components/HeroSection";
 import { AboutPreview } from "@/components/AboutPreview";
 import { ServicesPreview } from "@/components/ServicesPreview";
 import { StatsSection } from "@/components/StatsSection";
+import { FAQSection } from "@/components/FAQSection";
 import { CTASection } from "@/components/CTASection";
 
 const Index = () => {
@@ -16,10 +17,11 @@ const Index = () => {
         <AboutPreview />
         <ServicesPreview />
         <StatsSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
-      <WhatsAppButton />
+
     </div>
   );
 };

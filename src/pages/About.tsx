@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+
 import { SectionTitle } from "@/components/SectionTitle";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { StatsSection } from "@/components/StatsSection";
@@ -253,7 +253,7 @@ const About = () => {
       
       <CTASection />
       <Footer />
-      <WhatsAppButton />
+
     </div>
   );
 };
