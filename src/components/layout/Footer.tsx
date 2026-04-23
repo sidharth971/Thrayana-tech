@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, ArrowUp } from "lucide-react";
+import { MapPin, Mail, ArrowUp } from "lucide-react";
 import { Logo } from "./Logo";
 
 const footerLinks = {
@@ -84,22 +84,14 @@ export const Footer = () => {
                   Bangalore, Karnataka, India
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a
-                  href="tel:+919703164064"
-                  className="text-white/70 hover:text-primary transition-colors text-sm"
-                >
-                  +91 9703164064
-                </a>
-              </li>
+
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
-                  href="mailto:info@thrayanatechnologies.in"
+                  href="mailto:sales@thrayana.com"
                   className="text-white/70 hover:text-primary transition-colors text-sm"
                 >
-                  info@thrayanatechnologies.in
+                  sales@thrayana.com
                 </a>
               </li>
             </ul>

@@ -73,15 +73,7 @@ export const HeroSection = () => {
                 Our Services
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <a
-                href="https://wa.me/919703164064?text=Hi%20Thrayana%20Technologies,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline-light flex items-center gap-2 text-lg px-8 py-4 bg-white/5 hover:bg-white/10"
-              >
-                <MessageCircle className="w-5 h-5" />
-                Contact on WhatsApp
-              </a>
+
             </motion.div>
           </div>
 
