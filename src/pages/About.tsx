@@ -54,11 +54,11 @@ const About = () => {
               <span className="text-sm font-medium tracking-widest uppercase text-primary">Discover Our Journey</span>
             </motion.div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
-              Pioneering <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Digital</span> Excellence
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 mb-6 leading-tight">
+              Pioneering <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-gold-dark animate-pulse">Digital</span> Excellence
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
               We engineer intelligent solutions that elevate businesses and redefine possibilities.
             </p>
           </motion.div>
@@ -82,7 +82,7 @@ const About = () => {
                 />
 
                 {/* Main Image Container */}
-                <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-[0_0_50px_rgba(212,175,55,0.1)] z-10 bg-card border border-white/5">
+                <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-[0_0_50px_rgba(212,175,55,0.1)] z-10 bg-card border border-black/5">
                   <div className="absolute inset-0 bg-primary/20 mix-blend-color z-10 transition-opacity duration-700 group-hover:opacity-0" />
                   <img
                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070"
@@ -110,11 +110,11 @@ const About = () => {
             {/* Right Content Side */}
             <div className="lg:col-span-7 order-1 lg:order-2">
               <AnimatedSection direction="down">
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+                <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-8">
                   Your growth is our <span className="text-primary italic">blueprint</span>.
                 </h2>
                 
-                <div className="space-y-6 text-lg text-muted-foreground font-light">
+                <div className="space-y-6 text-lg text-slate-600 font-medium">
                   <p>
                     Thrayana Technologies is an elite software engineering and consulting firm headquartered in Bangalore. We don't just write code; we design transformative digital infrastructure that propels organizations into the future.
                   </p>
@@ -125,9 +125,9 @@ const About = () => {
                 
                 <div className="mt-10 grid sm:grid-cols-2 gap-6">
                   {["Automotive & Logistics", "Financial Services", "Healthcare & Pharma", "Real Estate Ventures"].map((industry) => (
-                    <div key={industry} className="flex items-center gap-3 text-white/90">
+                    <div key={industry} className="flex items-center gap-3 text-slate-800">
                       <CheckCircle2 className="w-5 h-5 text-primary" />
-                      <span className="font-medium">{industry}</span>
+                      <span className="font-bold">{industry}</span>
                     </div>
                   ))}
                 </div>
@@ -155,7 +155,7 @@ const About = () => {
               <motion.div
                 whileHover={{ y: -15, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="bg-card rounded-[2.5rem] p-10 lg:p-14 border-2 border-border hover:border-primary/50 relative overflow-hidden h-full group shadow-xl hover:shadow-[0_0_40px_rgba(212,175,55,0.15)]"
+                className="bg-white rounded-[2.5rem] p-10 lg:p-14 border border-slate-200 hover:border-primary/50 relative overflow-hidden h-full group shadow-xl hover:shadow-primary/5"
               >
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px] -mr-20 -mt-20 transition-opacity duration-700 opacity-0 group-hover:opacity-100" />
                 
@@ -167,8 +167,8 @@ const About = () => {
                   <Target className="w-10 h-10 text-primary-foreground" />
                 </motion.div>
                 
-                <h3 className="text-3xl lg:text-4xl font-extrabold text-white mb-6 group-hover:text-primary transition-colors duration-300">Our Mission</h3>
-                <p className="text-lg text-white/80 leading-relaxed font-light">
+                <h3 className="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-6 group-hover:text-primary transition-colors duration-300">Our Mission</h3>
+                <p className="text-lg text-slate-600 leading-relaxed font-medium">
                   To empower ambitious businesses with avant-garde technology solutions that drive explosive growth, streamline efficiency, and forge a lasting competitive advantage. We dedicate ourselves to being your invincible technological fortress.
                 </p>
               </motion.div>
@@ -178,7 +178,7 @@ const About = () => {
               <motion.div
                 whileHover={{ y: -15, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="bg-card rounded-[2.5rem] p-10 lg:p-14 border-2 border-border hover:border-accent/50 relative overflow-hidden h-full group shadow-xl hover:shadow-[0_0_40px_rgba(255,200,80,0.15)]"
+                className="bg-white rounded-[2.5rem] p-10 lg:p-14 border border-slate-200 hover:border-accent/50 relative overflow-hidden h-full group shadow-xl hover:shadow-accent/5"
               >
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/20 rounded-full blur-[80px] -ml-20 -mb-20 transition-opacity duration-700 opacity-0 group-hover:opacity-100" />
                 
@@ -190,8 +190,8 @@ const About = () => {
                   <Eye className="w-10 h-10 text-primary-foreground" />
                 </motion.div>
                 
-                <h3 className="text-3xl lg:text-4xl font-extrabold text-white mb-6 group-hover:text-accent transition-colors duration-300">Our Vision</h3>
-                <p className="text-lg text-white/80 leading-relaxed font-light">
+                <h3 className="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-6 group-hover:text-accent transition-colors duration-300">Our Vision</h3>
+                <p className="text-lg text-slate-600 leading-relaxed font-medium">
                   To emerge as the absolute global titan in technology innovation—renowned for delivering extraordinary value through revolutionary systems and unwavering support. We envision a business ecosystem inherently strengthened by our code.
                 </p>
               </motion.div>
@@ -206,12 +206,12 @@ const About = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <AnimatedSection direction="up">
-              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-secondary border border-border mb-8 shadow-lg shadow-black/20">
+              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-slate-200 mb-8 shadow-sm">
                 <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
                 <span className="text-primary font-bold tracking-widest uppercase text-sm">Our Competence</span>
               </div>
-              <h2 className="text-4xl lg:text-6xl font-extrabold text-white mb-8">What Sets Us <span className="text-gradient">Apart</span></h2>
-              <p className="text-white/70 text-xl font-light leading-relaxed">
+              <h2 className="text-4xl lg:text-6xl font-extrabold text-slate-900 mb-8">What Sets Us <span className="text-gradient">Apart</span></h2>
+              <p className="text-slate-600 text-xl font-medium leading-relaxed">
                 We deliver uncompromising excellence through deep-rooted expertise and relentless innovation in every single project.
               </p>
             </AnimatedSection>
@@ -222,21 +222,21 @@ const About = () => {
               <AnimatedSection key={item.title} delay={index * 0.1}>
                 <motion.div 
                   whileHover={{ y: -10, scale: 1.02 }}
-                  className="group relative p-10 rounded-[2rem] bg-secondary border-2 border-border hover:border-primary/40 transition-all duration-500 h-full overflow-hidden shadow-xl hover:shadow-[0_15px_40px_-15px_rgba(212,175,55,0.25)]"
+                  className="group relative p-10 rounded-[2rem] bg-white border border-slate-200 hover:border-primary/40 transition-all duration-500 h-full overflow-hidden shadow-xl hover:shadow-primary/10"
                 >
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-bl-full -mr-8 -mt-8 transition-transform duration-700 group-hover:scale-[2.5] ease-out" />
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-bl-full -mr-8 -mt-8 transition-transform duration-700 group-hover:scale-[2.5] ease-out" />
                   
                   <div className="relative z-10 flex flex-col items-start gap-6">
                     <motion.div 
                       animate={{ y: [0, -6, 0] }}
                       transition={{ duration: 3, delay: index * 0.2, repeat: Infinity, ease: "easeInOut" }}
-                      className="p-5 rounded-3xl bg-card border-2 border-border group-hover:border-primary/50 group-hover:bg-primary/10 transition-colors duration-500 shadow-xl"
+                      className="p-5 rounded-3xl bg-slate-50 border border-slate-200 group-hover:border-primary/50 group-hover:bg-primary/10 transition-colors duration-500 shadow-md"
                     >
                       <item.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-300" />
                     </motion.div>
                     <div>
-                      <h4 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{item.title}</h4>
-                      <p className="text-white/80 text-lg leading-relaxed font-light">{item.description}</p>
+                      <h4 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors">{item.title}</h4>
+                      <p className="text-slate-600 text-lg leading-relaxed font-bold">{item.description}</p>
                     </div>
                   </div>
                 </motion.div>

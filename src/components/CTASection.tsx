@@ -11,10 +11,17 @@ export const CTASection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(212,175,55,0.1)]"
+          className="relative rounded-[3rem] overflow-hidden border border-primary/20 shadow-2xl"
         >
-          {/* Background - Dark Theme aligned */}
-          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 2%) 100%)" }} />
+          {/* Background Image with Dark Overlay */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="/images/cta-bg.png" 
+              alt="CTA Background" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-primary/20 z-10" />
+          </div>
 
           {/* Pattern Overlay */}
           <div className="absolute inset-0 opacity-[0.03]">
@@ -47,10 +54,10 @@ export const CTASection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-secondary/80 border border-primary/20 backdrop-blur-sm rounded-full px-5 py-2.5 mb-8 shadow-lg"
+              className="inline-flex items-center gap-2 bg-white/20 border border-black/5 backdrop-blur-md rounded-full px-5 py-2.5 mb-8 shadow-sm"
             >
-              <Zap className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-sm font-semibold tracking-widest text-primary uppercase">Partner for Your Success</span>
+              <Zap className="w-4 h-4 text-white animate-pulse" />
+              <span className="text-sm font-semibold tracking-widest text-white uppercase">Partner for Your Success</span>
             </motion.div>
 
             <motion.h2
@@ -60,7 +67,7 @@ export const CTASection = () => {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8 leading-tight tracking-tight max-w-4xl"
             >
-              Unleash the Ultimate <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">IT Solutions</span> for your Enterprise
+              Unleash the Ultimate <span className="text-primary italic">IT Solutions</span> for your Enterprise
             </motion.h2>
 
             <motion.p
@@ -68,9 +75,9 @@ export const CTASection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="text-xl text-white/70 font-light mb-12 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl text-muted-foreground font-medium mb-12 max-w-3xl mx-auto leading-relaxed"
             >
-              We cut through the noise of modern markets to deliver brutal, scalable, and invincible business solutions tailored perfectly to dominate your competition.
+              We cut through the noise of modern markets to deliver robust, scalable, and invincible business solutions tailored perfectly to dominate your competition.
             </motion.p>
 
             <motion.div
@@ -81,7 +88,7 @@ export const CTASection = () => {
             >
               <Link
                 to="/contact"
-                className="btn-primary inline-flex items-center gap-3 text-lg px-10 py-5 shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_40px_rgba(212,175,55,0.6)] transition-all transform hover:-translate-y-1"
+                className="bg-white text-primary hover:bg-slate-50 inline-flex items-center gap-3 text-lg font-bold px-10 py-5 rounded-full shadow-2xl transition-all transform hover:-translate-y-1"
               >
                 Launch Your Project Now
                 <ArrowRight className="w-6 h-6" />

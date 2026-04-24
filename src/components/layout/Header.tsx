@@ -34,7 +34,9 @@ export const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass-dark py-3" : "bg-transparent py-5"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled 
+        ? "bg-slate-900/95 backdrop-blur-md py-3 shadow-lg border-b border-white/5" 
+        : "bg-slate-900 py-5"
         }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
@@ -43,8 +45,8 @@ export const Header = () => {
           <Link to="/" className="flex items-center gap-4">
             <Logo className="w-14 h-14" />
             <div className="flex flex-col">
-              <span className="text-4xl font-bold text-white">THRAYANA</span>
-              <span className="text-sm text-white/70 tracking-widest">TECHNOLOGIES</span>
+              <span className="text-4xl font-heading font-bold text-white">THRAYANA</span>
+              <span className="text-sm text-white/60 tracking-widest font-heading">TECHNOLOGIES</span>
             </div>
           </Link>
 
@@ -55,8 +57,8 @@ export const Header = () => {
                 key={link.path}
                 to={link.path}
                 className={`nav-link text-sm ${location.pathname === link.path
-                  ? "text-primary active"
-                  : "text-white hover:text-primary"
+                  ? "text-primary active font-semibold"
+                  : "text-white/80 hover:text-primary"
                   }`}
               >
                 {link.name}
@@ -89,7 +91,7 @@ export const Header = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden mt-4 glass-dark rounded-xl overflow-hidden"
+              className="lg:hidden mt-4 bg-slate-800 rounded-xl overflow-hidden shadow-2xl border border-white/10"
             >
               <div className="flex flex-col py-4">
                 {navLinks.map((link) => (
@@ -97,19 +99,21 @@ export const Header = () => {
                     key={link.path}
                     to={link.path}
                     className={`px-6 py-3 text-sm transition-colors ${location.pathname === link.path
-                      ? "text-primary"
-                      : "text-white hover:text-primary"
+                      ? "text-primary font-semibold bg-white/5"
+                      : "text-white/80 hover:text-primary hover:bg-white/5"
                       }`}
                   >
                     {link.name}
                   </Link>
                 ))}
-                <Link
-                  to="/contact"
-                  className="mx-4 mt-4 btn-primary text-sm text-center"
-                >
-                  Get Started
-                </Link>
+                <div className="px-4 mt-2">
+                  <Link
+                    to="/contact"
+                    className="btn-primary text-sm text-center w-full"
+                  >
+                    Get Started
+                  </Link>
+                </div>
               </div>
             </motion.div>
           )}

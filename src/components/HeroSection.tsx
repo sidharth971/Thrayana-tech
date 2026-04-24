@@ -14,10 +14,10 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-background border-b border-white/5 pt-20">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-background border-b border-slate-200/50 pt-20">
       {/* Floating Ambient Light Shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px] z-0" />
+        <div className="absolute inset-0 bg-grid-black/[0.02] bg-[size:50px_50px] z-0" />
         <motion.div 
           animate={{ x: [0, 50, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }} 
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
@@ -38,9 +38,9 @@ export const HeroSection = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-primary/30 mb-8 mx-auto lg:mx-0 shadow-[0_0_15px_rgba(212,175,55,0.15)]"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20 mb-8 mx-auto lg:mx-0 shadow-sm"
             >
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(212,175,55,0.8)]" />
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="text-sm font-semibold tracking-widest uppercase text-primary">Welcome to Thrayana</span>
             </motion.div>
 
@@ -48,17 +48,17 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight drop-shadow-lg"
+              className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight"
             >
               Providing you the best{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent animate-pulse block mt-2">innovative guidance</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-gold-dark block mt-2">innovative guidance</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-xl md:text-2xl text-white/70 font-light mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-xl md:text-2xl text-slate-600 font-medium mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             >
               We bring the massive power of data science and AI to your business. Transform complex ideas into invincible digital ecosystems.
             </motion.p>
@@ -117,17 +117,17 @@ export const HeroSection = () => {
                         transition={{ duration: 0.5 }}
                         className="absolute inset-0 flex items-center justify-center"
                       >
-                        <div className="w-full h-full rounded-3xl bg-card/60 backdrop-blur-2xl border-2 border-primary/30 p-6 relative overflow-hidden shadow-[0_0_50px_rgba(212,175,55,0.15)]">
-                          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-[40px] -mr-16 -mt-16" />
+                        <div className="w-full h-full rounded-3xl bg-white/90 backdrop-blur-xl border-2 border-primary/10 p-6 relative overflow-hidden shadow-2xl">
+                          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[40px] -mr-16 -mt-16" />
                           
-                          <div className="flex gap-2.5 mb-6 pb-4 border-b border-white/5">
+                          <div className="flex gap-2.5 mb-6 pb-4 border-b border-slate-100">
                             <div className="w-3.5 h-3.5 rounded-full bg-red-500/80 shadow-[0_0_10px_rgba(239,68,68,0.5)]"></div>
                             <div className="w-3.5 h-3.5 rounded-full bg-yellow-500/80 shadow-[0_0_10px_rgba(234,179,8,0.5)]"></div>
                             <div className="w-3.5 h-3.5 rounded-full bg-green-500/80 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
                           </div>
                           
                           <div className="font-mono text-xs md:text-sm leading-loose tracking-wide z-10 relative">
-                            <div className="text-primary italic">const</div> <div className="inline text-white font-bold ml-2">thrayana</div> = {"{"}
+                            <div className="text-primary italic">const</div> <div className="inline text-slate-900 font-bold ml-2">thrayana</div> = {"{"}
                             <div className="pl-6 border-l-2 border-primary/20 ml-2 mt-2 space-y-2">
                               <div className="flex items-center"><ChevronRight className="w-3 h-3 mr-2 text-primary" /><span className="text-accent/80 font-semibold">innovative</span>: <span className="text-emerald-400 font-bold ml-2">true</span>,</div>
                               <div className="flex items-center"><ChevronRight className="w-3 h-3 mr-2 text-primary" /><span className="text-accent/80 font-semibold">dataPowered</span>: <span className="text-emerald-400 font-bold ml-2">true</span>,</div>
@@ -167,7 +167,7 @@ export const HeroSection = () => {
                       >
                         <div className="w-full h-full rounded-3xl bg-card/60 backdrop-blur-2xl border-2 border-accent/30 p-6 relative overflow-hidden shadow-[0_0_50px_rgba(255,200,80,0.15)] flex flex-col">
                           
-                          <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/5">
+                          <div className="flex items-center justify-between mb-4 pb-4 border-b border-slate-100">
                             <span className="text-accent font-semibold tracking-wide flex items-center gap-2"><BarChart2 className="w-4 h-4"/> Live AI Analytics</span>
                             <span className="text-emerald-400 text-xs font-bold tracking-widest animate-pulse">● SYNCED</span>
                           </div>
@@ -181,7 +181,7 @@ export const HeroSection = () => {
                                 transition={{ duration: 1, delay: i * 0.1, type: "spring" }}
                                 className="w-full bg-gradient-to-t from-primary/20 to-accent/80 rounded-t-lg relative group"
                               >
-                                <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/50 opacity-0 group-hover:opacity-100 transition-opacity">{height}k</div>
+                                <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity">{height}k</div>
                               </motion.div>
                             ))}
                           </div>
@@ -192,7 +192,7 @@ export const HeroSection = () => {
                           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                           className="absolute -top-6 -right-6 w-16 h-16 rounded-2xl bg-secondary border border-accent/30 flex items-center justify-center shadow-2xl backdrop-blur-md"
                         >
-                          <Activity className="w-7 h-7 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+                          <Activity className="w-7 h-7 text-primary drop-shadow-sm" />
                         </motion.div>
                       </motion.div>
                     )}
@@ -224,8 +224,8 @@ export const HeroSection = () => {
                             </motion.div>
                           </div>
                           
-                          <h3 className="text-emerald-400 font-extrabold tracking-widest text-lg drop-shadow-[0_0_5px_rgba(52,211,153,0.5)]">SHIELD ACTIVE</h3>
-                          <p className="text-white/60 text-xs mt-2 font-mono tracking-widest">Enterprise grade security</p>
+                          <h3 className="text-emerald-600 font-extrabold tracking-widest text-lg">SHIELD ACTIVE</h3>
+                          <p className="text-slate-500 text-xs mt-2 font-mono tracking-widest uppercase">Enterprise grade security</p>
                         </div>
 
                         <motion.div 

@@ -82,7 +82,7 @@ const Services = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-24 relative overflow-hidden flex items-center justify-center min-h-[60vh] border-b border-white/5">
+      <section className="pt-32 pb-24 relative overflow-hidden flex items-center justify-center min-h-[60vh] border-b border-black/5">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div 
             animate={{ x: [0, 60, 0], y: [0, -60, 0], scale: [1, 1.2, 1] }} 
@@ -113,11 +113,11 @@ const Services = () => {
               <span className="text-sm font-semibold tracking-widest uppercase text-primary">What We Offer</span>
             </motion.div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-tight tracking-tight">
-              Transformative <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient-x">Digital Services</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 mb-8 leading-tight tracking-tight">
+              Transformative <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-gold-dark to-primary animate-pulse">Digital Services</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
               Comprehensive technology solutions meticulously designed to accelerate your operational efficiency and drive sustainable market dominance.
             </p>
           </motion.div>
@@ -140,7 +140,7 @@ const Services = () => {
                   <div className={`lg:col-span-6 ${index % 2 === 1 ? "lg:order-2" : "lg:order-1"}`}>
                     <motion.div
                       whileHover={{ y: -5 }}
-                      className="bg-card rounded-[2.5rem] p-10 lg:p-14 border-2 border-border hover:border-primary/30 transition-all duration-500 shadow-xl hover:shadow-[0_0_50px_rgba(212,175,55,0.1)] group relative overflow-hidden"
+                      className="bg-white rounded-[2.5rem] p-10 lg:p-14 border border-slate-200 hover:border-primary/30 transition-all duration-500 shadow-xl hover:shadow-primary/5 group relative overflow-hidden"
                     >
                       <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -mr-32 -mt-32 transition-opacity duration-700 opacity-0 group-hover:opacity-100" />
                       
@@ -153,20 +153,20 @@ const Services = () => {
                       </motion.div>
                       
                       <div className="relative z-10">
-                        <h3 className="text-3xl lg:text-4xl font-extrabold text-white mb-6 group-hover:text-primary transition-colors duration-300">
+                        <h3 className="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-6 group-hover:text-primary transition-colors duration-300">
                           {service.title}
                         </h3>
-                        <p className="text-lg text-white/70 mb-8 leading-relaxed font-light">
+                        <p className="text-lg text-slate-600 mb-8 leading-relaxed font-medium">
                           {service.description}
                         </p>
                         
-                        <div className="grid sm:grid-cols-2 gap-4 mt-8 pt-8 border-t border-white/10">
+                        <div className="grid sm:grid-cols-2 gap-4 mt-8 pt-8 border-t border-slate-100">
                           {service.features.map((feature) => (
                             <div key={feature} className="flex items-center gap-3">
-                              <div className="w-8 h-8 rounded-full bg-secondary/80 border border-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 group-hover:border-primary/30 transition-colors">
+                              <div className="w-8 h-8 rounded-full bg-secondary/80 border border-black/5 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 group-hover:border-primary/30 transition-colors">
                                 <ArrowRight className="w-4 h-4 text-primary" />
                               </div>
-                              <span className="text-sm md:text-base text-white/80 font-medium group-hover:text-white transition-colors">
+                              <span className="text-sm md:text-base text-slate-700 font-semibold group-hover:text-primary transition-colors">
                                 {feature}
                               </span>
                             </div>
@@ -189,7 +189,7 @@ const Services = () => {
                       <motion.div
                         whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.5 }}
-                        className="relative rounded-[2rem] overflow-hidden aspect-[4/3] border border-white/5 shadow-[0_0_40px_rgba(0,0,0,0.8)] z-10 bg-card"
+                        className="relative rounded-[2rem] overflow-hidden aspect-[4/3] border border-slate-200 shadow-2xl z-10 bg-white"
                       >
                         <div className="absolute inset-0 bg-primary/20 mix-blend-color z-10 transition-opacity duration-700 group-hover:opacity-0" />
                         <img
@@ -228,7 +228,7 @@ const Services = () => {
 
       {/* Process Section */}
       <section className="py-32 bg-secondary/40 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+        <div className="absolute inset-0 bg-grid-black/[0.02] bg-[size:50px_50px]" />
         
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <SectionTitle
@@ -250,22 +250,22 @@ const Services = () => {
               <AnimatedSection key={item.step} delay={index * 0.1}>
                 <motion.div
                   whileHover={{ y: -10 }}
-                  className="relative group p-8 bg-card border-2 border-border hover:border-primary/40 rounded-[2rem] shadow-xl hover:shadow-[0_15px_40px_-15px_rgba(212,175,55,0.2)] transition-all duration-500 h-full overflow-hidden z-10"
+                  className="relative group p-8 bg-white border border-slate-200 hover:border-primary/40 rounded-[2rem] shadow-xl hover:shadow-primary/10 transition-all duration-500 h-full overflow-hidden z-10"
                 >
-                  <div className="absolute -right-6 -top-10 text-[150px] font-black text-white/[0.03] group-hover:text-primary/[0.05] transition-colors duration-500 pointer-events-none select-none">
+                  <div className="absolute -right-6 -top-10 text-[150px] font-black text-slate-900/[0.03] group-hover:text-primary/[0.05] transition-colors duration-500 pointer-events-none select-none">
                     {item.step}
                   </div>
                   
                   <motion.div 
                     initial={{ scale: 0.8 }}
                     whileInView={{ scale: 1 }}
-                    className="w-16 h-16 rounded-2xl bg-secondary border border-primary/20 flex items-center justify-center mb-8 relative z-10 group-hover:bg-primary/20 transition-colors duration-500"
+                    className="w-16 h-16 rounded-2xl bg-slate-50 border border-primary/20 flex items-center justify-center mb-8 relative z-10 group-hover:bg-primary/20 transition-colors duration-500"
                   >
                     <span className="text-2xl font-bold text-primary">{item.step}</span>
                   </motion.div>
                   
-                  <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300 relative z-10">{item.title}</h4>
-                  <p className="text-lg text-white/70 font-light leading-relaxed relative z-10">{item.description}</p>
+                  <h4 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary transition-colors duration-300 relative z-10">{item.title}</h4>
+                  <p className="text-lg text-slate-600 font-medium leading-relaxed relative z-10">{item.description}</p>
                 </motion.div>
               </AnimatedSection>
             ))}

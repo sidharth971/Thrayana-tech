@@ -17,7 +17,7 @@ export const StatsSection = () => {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <AnimatedSection direction="up">
-          <div className="bg-card rounded-[3rem] p-10 md:p-16 border-2 border-border shadow-[0_0_40px_rgba(0,0,0,0.5)] relative overflow-hidden">
+          <div className="bg-white rounded-[3rem] p-10 md:p-16 border border-slate-200 shadow-2xl relative overflow-hidden">
             {/* Ambient inner glows */}
             <motion.div 
               animate={{ opacity: [0.1, 0.3, 0.1], scale: [1, 1.1, 1] }}
@@ -35,7 +35,7 @@ export const StatsSection = () => {
                 <div key={stat.label} className="relative group">
                   {/* Divider line between stats on desktop */}
                   {index !== 0 && (
-                    <div className="hidden md:block absolute left-0 top-1/4 bottom-1/4 w-px bg-white/5 group-hover:bg-primary/30 transition-colors duration-500" />
+                    <div className="hidden md:block absolute left-0 top-1/4 bottom-1/4 w-px bg-slate-200 group-hover:bg-primary/30 transition-colors duration-500" />
                   )}
                   <CounterCard
                     value={stat.value}

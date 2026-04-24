@@ -39,7 +39,7 @@ const services = [
 
 export const ServicesPreview = () => {
   return (
-    <section className="py-32 bg-background relative overflow-hidden border-b border-white/5">
+    <section className="py-32 bg-background relative overflow-hidden border-b border-black/5">
       {/* Golden Grid Pattern Background */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute top-0 left-0 w-full h-full" style={{

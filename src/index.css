@@ -1,55 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Thrayana Technologies Design System - Golden & Black Theme */
+/* Thrayana Technologies Design System - Premium Light & Gold Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 2%;
-    --foreground: 0 0% 100%;
+    --background: 0 0% 98%;
+    --foreground: 224 71.4% 4.1%;
 
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
 
-    /* Golden */
+    /* Golden Brand Color */
     --primary: 43 74% 49%;
-    --primary-foreground: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 43 74% 49%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
 
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
 
     --accent: 43 90% 65%;
-    --accent-foreground: 0 0% 0%;
+    --accent-foreground: 220.9 39.3% 11%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
     --ring: 43 74% 49%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Custom Golden & Black Colors */
-    --black-dark: 0 0% 0%;
-    --black-medium: 0 0% 4%;
-    --black-light: 0 0% 8%;
+    /* Custom Palette */
     --gold: 43 74% 49%;
     --gold-light: 43 90% 65%;
+    --gold-dark: 35 80% 40%;
     
-    /* Text colors */
-    --text-dark: 0 0% 100%;
-    --text-light: 43 74% 49%;
-    --text-muted: 0 0% 65%;
+    --slate-50: 210 40% 98%;
+    --slate-100: 210 40% 96.1%;
+    --slate-900: 222.2 84% 4.9%;
   }
 }
 
@@ -63,40 +60,48 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Poppins', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    @apply font-bold tracking-tight;
   }
 }
 
 @layer components {
   /* Hero Gradient */
   .gradient-hero {
-    background: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(0 0% 3%) 50%, hsl(0 0% 6%) 100%);
+    background: radial-gradient(circle at 0% 0%, hsla(43, 74%, 49%, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, hsla(43, 74%, 49%, 0.05) 0%, transparent 50%),
+                hsl(0 0% 98%);
   }
 
-  /* Light Section will just be normal bg now, but naming stays same to avoid breaking */
   .section-light {
     @apply bg-background;
   }
 
   .section-dark {
-    background: linear-gradient(180deg, hsl(0 0% 0%) 0%, hsl(0 0% 3%) 100%);
+    @apply bg-slate-900 text-white;
+    background: linear-gradient(180deg, hsl(222.2 84% 4.9%) 0%, hsl(222.2 84% 8%) 100%);
   }
 
   .gradient-section {
-    @apply bg-secondary;
+    background: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 40% 96.1%) 100%);
   }
 
   .gradient-card {
-    @apply bg-card border border-border shadow-lg;
+    @apply bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-500;
   }
 
   .gradient-card-dark {
-    background: linear-gradient(145deg, hsl(0 0% 4%) 0%, hsl(0 0% 1%) 100%);
+    @apply bg-slate-900 border border-white/10;
   }
 
   .gradient-cta {
     background: linear-gradient(135deg, hsl(43 74% 49%) 0%, hsl(35 80% 40%) 100%);
+    @apply text-white;
   }
 
   .gradient-accent {
@@ -105,65 +110,50 @@
 
   /* Glass Effect */
   .glass {
-    background: hsla(0, 0%, 5%, 0.9);
+    background: hsla(0, 0%, 100%, 0.7);
     backdrop-filter: blur(20px);
-    border: 1px solid hsla(43, 74%, 49%, 0.2);
+    border: 1px solid hsla(0, 0%, 0%, 0.05);
   }
 
   .glass-light {
-    background: hsla(0, 0%, 10%, 0.6);
+    background: hsla(0, 0%, 100%, 0.4);
     backdrop-filter: blur(20px);
-    border: 1px solid hsla(43, 74%, 49%, 0.3);
+    border: 1px solid hsla(0, 0%, 0%, 0.03);
   }
 
   .glass-dark {
-    background: hsla(0, 0%, 0%, 0.8);
+    background: hsla(222.2, 84%, 4.9%, 0.8);
     backdrop-filter: blur(20px);
-    border: 1px solid hsla(43, 74%, 49%, 0.1);
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
   }
 
   /* Glowing Effects */
-  .glow-coral {
-    box-shadow: 0 0 40px hsla(43, 74%, 49%, 0.3);
-  }
-
-  .glow-cyan {
-    box-shadow: 0 0 40px hsla(43, 90%, 65%, 0.3);
+  .glow-gold {
+    box-shadow: 0 0 40px hsla(43, 74%, 49%, 0.15);
   }
 
   /* Button Variants */
   .btn-primary {
-    @apply px-8 py-3 rounded-full font-semibold transition-all duration-300;
+    @apply px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center justify-center gap-2;
     background: linear-gradient(135deg, hsl(43 74% 49%) 0%, hsl(35 80% 40%) 100%);
-    color: #000;
+    color: white;
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px hsla(43, 74%, 49%, 0.4);
+    box-shadow: 0 10px 30px hsla(43, 74%, 49%, 0.3);
   }
 
   .btn-outline {
-    @apply px-8 py-3 rounded-full font-semibold transition-all duration-300 border-2;
+    @apply px-8 py-3 rounded-full font-semibold transition-all duration-300 border-2 flex items-center justify-center gap-2;
     border-color: hsl(43 74% 49%);
     color: hsl(43 74% 49%);
   }
 
   .btn-outline:hover {
     background: hsl(43 74% 49%);
-    color: #000;
+    color: white;
     transform: translateY(-2px);
-  }
-
-  .btn-outline-light {
-    @apply px-8 py-3 rounded-full font-semibold transition-all duration-300 border-2;
-    border-color: hsla(43, 74%, 49%, 0.5);
-    color: hsl(43 74% 49%);
-  }
-
-  .btn-outline-light:hover {
-    background: hsla(43, 74%, 49%, 0.1);
-    border-color: hsl(43 74% 49%);
   }
 
   /* Floating Animation */
@@ -182,13 +172,13 @@
   }
 
   @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 0 20px hsla(43, 74%, 49%, 0.4); }
-    50% { box-shadow: 0 0 40px hsla(43, 74%, 49%, 0.6); }
+    0%, 100% { box-shadow: 0 0 20px hsla(43, 74%, 49%, 0.2); }
+    50% { box-shadow: 0 0 40px hsla(43, 74%, 49%, 0.4); }
   }
 
   /* Text Gradient */
   .text-gradient {
-    background: linear-gradient(135deg, hsl(43 74% 49%) 0%, hsl(43 90% 65%) 100%);
+    background: linear-gradient(135deg, hsl(43 74% 49%) 0%, hsl(35 80% 40%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -196,23 +186,18 @@
 
   /* Card Hover Effect */
   .card-hover {
-    @apply transition-all duration-500;
-  }
-
-  .card-hover:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px hsla(43, 74%, 49%, 0.1);
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gold/10;
   }
 
   /* Section Divider */
   .section-divider {
-    @apply w-20 h-1 mx-auto rounded-full;
+    @apply w-20 h-1.5 mx-auto rounded-full;
     background: linear-gradient(90deg, hsl(43 74% 49%) 0%, hsl(43 90% 65%) 100%);
   }
 
   /* Navigation */
   .nav-link {
-    @apply relative px-4 py-2 font-medium transition-colors duration-300 text-white;
+    @apply relative px-4 py-2 font-medium transition-colors duration-300 text-foreground/80;
   }
   
   .nav-link:hover {
@@ -233,33 +218,33 @@
 
   /* Hero Text */
   .hero-text {
-    color: white;
+    @apply text-slate-900;
   }
 
   .hero-text-muted {
-    color: hsla(0, 0%, 100%, 0.7);
+    @apply text-slate-600;
   }
 
   /* WhatsApp Button */
   .whatsapp-btn {
-    @apply fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300;
+    @apply fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110;
     background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
   }
 }
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(0 0% 6%);
+  background: hsl(210 40% 98%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, hsl(43 74% 49%) 0%, hsl(35 80% 40%) 100%);
-  border-radius: 4px;
+  background: hsl(43 74% 49% / 0.3);
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

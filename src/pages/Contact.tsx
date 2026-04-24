@@ -62,10 +62,10 @@ const Contact = () => {
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">Get in Touch</span>
             <div className="flex flex-col items-center mt-6">
               <Logo className="w-20 h-20 mb-4" />
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight font-heading">
                 Let's <span className="text-gradient">Connect</span>
               </h1>
-              <p className="text-lg text-white/80">
+              <p className="text-lg text-slate-600 font-medium">
                 Ready to start your project? Let's discuss how we can help transform your business.
               </p>
             </div>
@@ -80,7 +80,7 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <AnimatedSection direction="right">
-              <div className="bg-card rounded-2xl p-8 border border-border shadow-lg">
+              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xl">
                 <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -147,7 +147,7 @@ const Contact = () => {
                       className="btn-primary flex items-center justify-center gap-2 flex-1"
                     >
                       {isSubmitting ? (
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <div className="w-5 h-5 border-2 border-black/5 border-t-white rounded-full animate-spin" />
                       ) : (
                         <>
                           <Send className="w-5 h-5" />
@@ -179,7 +179,7 @@ const Contact = () => {
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 }}
                       whileHover={{ x: 5 }}
-                      className="flex items-start gap-4 p-4 rounded-xl bg-secondary border border-border shadow-lg"
+                      className="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-lg"
                     >
                       <div className="w-12 h-12 rounded-lg gradient-cta flex items-center justify-center flex-shrink-0">
                         <item.icon className="w-6 h-6 text-white" />
@@ -205,7 +205,7 @@ const Contact = () => {
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 bg-card rounded-3xl border border-border shadow-2xl overflow-hidden">
               {/* Address Details */}
-              <div className="p-12 lg:p-20 flex flex-col justify-center items-center text-center lg:items-start lg:text-left bg-secondary/30">
+              <div className="p-12 lg:p-20 flex flex-col justify-center items-center text-center lg:items-start lg:text-left bg-slate-50">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                   <MapPin className="w-8 h-8 text-primary" />
                 </div>
