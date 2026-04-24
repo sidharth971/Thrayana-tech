@@ -51,112 +51,146 @@ const Contact = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 gradient-hero relative overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <section className="pt-40 pb-32 relative overflow-hidden flex items-center justify-center min-h-[70vh] bg-slate-950">
+        {/* Background Image with Dark Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/images/about/contact-hero-v2.png" 
+            alt="Contact Hero Background" 
+            className="w-full h-full object-cover opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/70 to-slate-950/40 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-transparent to-slate-950 z-10 opacity-40" />
+        </div>
+
+        <div className="container mx-auto px-4 lg:px-12 relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center max-w-4xl mx-auto"
           >
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Get in Touch</span>
-            <div className="flex flex-col items-center mt-6">
-              <Logo className="w-20 h-20 mb-4" />
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight font-heading">
-                Let's <span className="text-gradient">Connect</span>
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-10 shadow-lg"
+            >
+              <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white">Get in Touch</span>
+            </motion.div>
+            
+            <div className="flex flex-col items-center">
+              <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold text-white mb-8 leading-[1.05] tracking-tight">
+                Let's <span className="text-primary italic animate-pulse">Connect.</span>
               </h1>
-              <p className="text-lg text-slate-600 font-medium">
-                Ready to start your project? Let's discuss how we can help transform your business.
+              <p className="text-xl md:text-2xl text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
+                Ready to architect your next breakthrough? Our senior leadership and engineering teams are standing by to collaborate on your vision.
               </p>
             </div>
           </motion.div>
         </div>
-
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-24 bg-white relative">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <div className="container mx-auto px-4 lg:px-12 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <AnimatedSection direction="right">
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xl">
-                <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">Name *</label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
-                        placeholder="Your name"
-                      />
+              <div className="bg-white rounded-[2.5rem] p-10 lg:p-16 border border-slate-200 shadow-2xl relative overflow-hidden group">
+                {/* Decorative Background Element */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -mr-32 -mt-32 transition-opacity duration-700 opacity-50" />
+                
+                <div className="relative z-10">
+                  <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-2 tracking-tight">Send us a <span className="text-primary italic">Message</span></h2>
+                  <p className="text-slate-500 mb-10 font-medium">Complete the form below and our strategic team will reach out within 24 hours.</p>
+  
+                  <form onSubmit={handleSubmit} className="space-y-8">
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <div className="space-y-3">
+                        <label className="block text-xs font-black text-slate-900 uppercase tracking-widest ml-1">
+                          Full Name <span className="text-primary">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 outline-none transition-all duration-300 text-slate-900 font-medium placeholder:text-slate-400"
+                          placeholder="John Doe"
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <label className="block text-xs font-black text-slate-900 uppercase tracking-widest ml-1">
+                          Email Address <span className="text-primary">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 outline-none transition-all duration-300 text-slate-900 font-medium placeholder:text-slate-400"
+                          placeholder="john@example.com"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">Email *</label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-1 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">Subject</label>
+  
+                    <div className="space-y-3">
+                      <label className="block text-xs font-black text-slate-900 uppercase tracking-widest ml-1">
+                        Subject
+                      </label>
                       <input
                         type="text"
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
-                        placeholder="Project inquiry"
+                        className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 outline-none transition-all duration-300 text-slate-900 font-medium placeholder:text-slate-400"
+                        placeholder="Partnership Inquiry"
                       />
                     </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">Message *</label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:outline-none transition-colors text-foreground resize-none"
-                      placeholder="Tell us about your project..."
-                    />
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <motion.button
-                      type="submit"
-                      disabled={isSubmitting}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="btn-primary flex items-center justify-center gap-2 flex-1"
-                    >
-                      {isSubmitting ? (
-                        <div className="w-5 h-5 border-2 border-black/5 border-t-white rounded-full animate-spin" />
-                      ) : (
-                        <>
-                          <Send className="w-5 h-5" />
-                          Send Message
-                        </>
-                      )}
-                    </motion.button>
-                  </div>
-                </form>
+  
+                    <div className="space-y-3">
+                      <label className="block text-xs font-black text-slate-900 uppercase tracking-widest ml-1">
+                        How can we help? <span className="text-primary">*</span>
+                      </label>
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        rows={5}
+                        className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 outline-none transition-all duration-300 text-slate-900 font-medium placeholder:text-slate-400 resize-none"
+                        placeholder="Tell us about your project or business goals..."
+                      />
+                    </div>
+  
+                    <div className="pt-4">
+                      <motion.button
+                        type="submit"
+                        disabled={isSubmitting}
+                        whileHover={{ scale: 1.02, y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full py-5 rounded-2xl bg-gradient-to-r from-primary to-gold-dark text-black font-black uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-3 shadow-[0_20px_40px_-15px_rgba(212,175,55,0.4)] hover:shadow-[0_25px_50px_-12px_rgba(212,175,55,0.5)] transition-all duration-300"
+                      >
+                        {isSubmitting ? (
+                          <div className="w-5 h-5 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+                        ) : (
+                          <>
+                            <span>Initiate Conversation</span>
+                            <Send className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                          </>
+                        )}
+                      </motion.button>
+                      <p className="text-center text-[10px] text-slate-400 mt-6 uppercase tracking-widest font-bold">
+                        Secure Submission • GDPR Compliant
+                      </p>
+                    </div>
+                  </form>
+                </div>
               </div>
             </AnimatedSection>
 
@@ -179,15 +213,15 @@ const Contact = () => {
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 }}
                       whileHover={{ x: 5 }}
-                      className="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-lg"
+                      className="flex items-start gap-5 p-6 rounded-2xl bg-white border border-slate-200 shadow-xl group hover:border-primary/40 transition-all duration-300"
                     >
-                      <div className="w-12 h-12 rounded-lg gradient-cta flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-6 h-6 text-white" />
+                      <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-black transition-all duration-500 shadow-sm">
+                        <item.icon className="w-7 h-7 text-primary group-hover:text-black transition-colors" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-foreground mb-1">{item.title}</h4>
+                        <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">{item.title}</h4>
                         {item.details.map((detail) => (
-                          <p key={detail} className="text-sm text-muted-foreground">{detail}</p>
+                          <p key={detail} className="text-lg text-slate-600 font-bold leading-relaxed">{detail}</p>
                         ))}
                       </div>
                     </motion.div>
@@ -226,14 +260,14 @@ const Contact = () => {
               <div className="h-[400px] lg:h-auto min-h-[400px] relative">
                 <iframe
                   title="Thrayana Technologies Location"
-                  src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=A%20BLK,%20ITTINA%20LIMITED%20GLASS%20FACTORY%20LAYOUT,%20ELECTRONIC%20CITY%20PHASE2,%20BANGALORE%20560100&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                  src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Thrayana%20Technologies,%20Electronic%20City%20Phase%202,%20Bangalore&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0 grayscale contrast-[1.1] hover:grayscale-0 transition-all duration-700"
+                  className="absolute inset-0 transition-all duration-700 brightness-100 hover:brightness-110"
                 ></iframe>
               </div>
             </div>

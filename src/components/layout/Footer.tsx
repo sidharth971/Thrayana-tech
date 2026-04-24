@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Mail, Linkedin, Twitter, Github, ArrowUp } from "lucide-react";
+import { MapPin, Mail, ArrowUp } from "lucide-react";
 import { Logo } from "./Logo";
 
 const footerLinks = {
@@ -44,13 +44,7 @@ export const Footer = () => {
             <p className="text-slate-400 text-lg font-medium leading-relaxed mb-8 max-w-sm">
               Engineering the future of enterprise technology through innovation, data science, and scalable AI solutions.
             </p>
-            <div className="flex gap-4">
-               {[Linkedin, Twitter, Github].map((Icon, i) => (
-                  <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-slate-900 transition-all duration-300">
-                     <Icon className="w-5 h-5" />
-                  </a>
-               ))}
-            </div>
+
           </div>
 
           {/* Links Columns */}

@@ -82,21 +82,19 @@ const Services = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-24 relative overflow-hidden flex items-center justify-center min-h-[60vh] border-b border-black/5">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div 
-            animate={{ x: [0, 60, 0], y: [0, -60, 0], scale: [1, 1.2, 1] }} 
-            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-20 -left-20 w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-[120px] -z-10" 
+      <section className="pt-40 pb-32 relative overflow-hidden flex items-center justify-center min-h-[70vh] bg-slate-950">
+        {/* Background Image with Dark Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/images/about/services-hero-v2.png" 
+            alt="Services Hero Background" 
+            className="w-full h-full object-cover opacity-80"
           />
-          <motion.div 
-            animate={{ x: [0, -60, 0], y: [0, 60, 0], scale: [1, 1.3, 1] }} 
-            transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/4 right-0 w-[40rem] h-[40rem] bg-accent/5 rounded-full blur-[150px] -z-10" 
-          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/70 to-slate-950/40 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-transparent to-slate-950 z-10 opacity-40" />
         </div>
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 lg:px-12 relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -107,17 +105,17 @@ const Services = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-secondary/80 border border-primary/20 mb-8 shadow-[0_0_20px_rgba(212,175,55,0.1)] backdrop-blur-md"
+              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-10 shadow-lg"
             >
-              <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(212,175,55,0.8)] animate-pulse" />
-              <span className="text-sm font-semibold tracking-widest uppercase text-primary">What We Offer</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white">What We Offer</span>
             </motion.div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 mb-8 leading-tight tracking-tight">
-              Transformative <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-gold-dark to-primary animate-pulse">Digital Services</span>
+            <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold text-white mb-8 leading-[1.05] tracking-tight">
+              Transformative <br/><span className="text-primary italic">Digital Services</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-300 font-medium max-w-3xl mx-auto leading-relaxed">
               Comprehensive technology solutions meticulously designed to accelerate your operational efficiency and drive sustainable market dominance.
             </p>
           </motion.div>
@@ -191,13 +189,13 @@ const Services = () => {
                         transition={{ duration: 0.5 }}
                         className="relative rounded-[2rem] overflow-hidden aspect-[4/3] border border-slate-200 shadow-2xl z-10 bg-white"
                       >
-                        <div className="absolute inset-0 bg-primary/20 mix-blend-color z-10 transition-opacity duration-700 group-hover:opacity-0" />
+                        <div className="absolute inset-0 bg-primary/5 z-10 transition-opacity duration-700 group-hover:opacity-0" />
                         <img
                           src={service.image}
                           alt={service.title}
-                          className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-110"
+                          className="w-full h-full object-cover opacity-100 transition-all duration-700 ease-out group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent z-20 pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent z-20 pointer-events-none" />
                         
                         {/* Huge Watermark Icon on Image */}
                         <div className="absolute bottom-0 right-0 p-8 z-30 opacity-20 group-hover:opacity-40 transition-opacity duration-700 translate-x-12 translate-y-12">
@@ -227,14 +225,22 @@ const Services = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-32 bg-secondary/40 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-black/[0.02] bg-[size:50px_50px]" />
+      <section className="py-32 relative overflow-hidden bg-slate-900">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=2070" 
+            alt="Process Background" 
+            className="w-full h-full object-cover opacity-30 grayscale"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-900 z-10" />
+        </div>
         
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 lg:px-12 relative z-20">
           <SectionTitle
             subtitle="Our Process"
             title="How We Work"
             description="A battle-tested methodology meticulously crafted to ensure spectacular project delivery every single time."
+            light={true}
           />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative mt-16">
@@ -250,22 +256,22 @@ const Services = () => {
               <AnimatedSection key={item.step} delay={index * 0.1}>
                 <motion.div
                   whileHover={{ y: -10 }}
-                  className="relative group p-8 bg-white border border-slate-200 hover:border-primary/40 rounded-[2rem] shadow-xl hover:shadow-primary/10 transition-all duration-500 h-full overflow-hidden z-10"
+                  className="relative group p-10 bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/40 rounded-[2.5rem] shadow-2xl transition-all duration-500 h-full overflow-hidden z-10"
                 >
-                  <div className="absolute -right-6 -top-10 text-[150px] font-black text-slate-900/[0.03] group-hover:text-primary/[0.05] transition-colors duration-500 pointer-events-none select-none">
+                  <div className="absolute -right-6 -top-10 text-[150px] font-black text-white/[0.03] group-hover:text-primary/[0.05] transition-colors duration-500 pointer-events-none select-none">
                     {item.step}
                   </div>
                   
                   <motion.div 
                     initial={{ scale: 0.8 }}
                     whileInView={{ scale: 1 }}
-                    className="w-16 h-16 rounded-2xl bg-slate-50 border border-primary/20 flex items-center justify-center mb-8 relative z-10 group-hover:bg-primary/20 transition-colors duration-500"
+                    className="w-20 h-20 rounded-[2rem] bg-white/10 border border-white/20 flex items-center justify-center mb-10 relative z-10 group-hover:bg-primary group-hover:text-black transition-all duration-500 shadow-xl"
                   >
-                    <span className="text-2xl font-bold text-primary">{item.step}</span>
+                    <span className="text-3xl font-black text-primary group-hover:text-black transition-colors">{item.step}</span>
                   </motion.div>
                   
-                  <h4 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary transition-colors duration-300 relative z-10">{item.title}</h4>
-                  <p className="text-lg text-slate-600 font-medium leading-relaxed relative z-10">{item.description}</p>
+                  <h4 className="text-2xl md:text-3xl font-extrabold text-white mb-6 group-hover:text-primary transition-colors duration-300 relative z-10">{item.title}</h4>
+                  <p className="text-lg text-slate-300 font-bold leading-relaxed relative z-10">{item.description}</p>
                 </motion.div>
               </AnimatedSection>
             ))}

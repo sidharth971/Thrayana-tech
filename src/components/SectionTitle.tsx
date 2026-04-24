@@ -29,18 +29,18 @@ export const SectionTitle = ({
         </span>
       )}
       <h2
-        className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${
-          light ? "text-foreground" : "text-foreground"
+        className={`text-3xl md:text-4xl lg:text-6xl font-extrabold mb-6 tracking-tight ${
+          light ? "text-white" : "text-slate-900"
         }`}
       >
         {title}
       </h2>
-      {centered && <div className="section-divider mb-6" />}
+      {centered && <div className="w-24 h-1.5 bg-primary rounded-full mx-auto mb-8" />}
       {description && (
         <p
           className={`max-w-2xl ${
             centered ? "mx-auto" : ""
-          } text-muted-foreground text-lg`}
+          } ${light ? "text-slate-300" : "text-slate-600"} text-lg md:text-xl font-medium leading-relaxed`}
         >
           {description}
         </p>

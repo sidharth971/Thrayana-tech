@@ -44,21 +44,35 @@ const Industries = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-40 pb-24 relative bg-slate-50 border-b border-slate-100">
-        <div className="container mx-auto px-4 lg:px-12 relative z-10">
+      <section className="pt-40 pb-32 relative overflow-hidden flex items-center justify-center min-h-[70vh] bg-slate-950">
+        {/* Background Image with Dark Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/images/about/industries-hero-v2.png" 
+            alt="Industries Hero Background" 
+            className="w-full h-full object-cover opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/70 to-slate-950/40 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-transparent to-slate-950 z-10 opacity-40" />
+        </div>
+
+        <div className="container mx-auto px-4 lg:px-12 relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="max-w-5xl"
           >
-             <div className="text-sm font-black uppercase tracking-[0.3em] text-primary mb-6">Expertise across sectors</div>
-             <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 mb-8 leading-[1.05] tracking-tight">
-               Accelerate <span className="text-primary">revenue growth</span>, cut costs, and manage risk.
+             <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-10 shadow-lg">
+                <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+                <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white">Expertise across sectors</span>
+             </div>
+             <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold text-white mb-8 leading-[1.05] tracking-tight">
+               Accelerate <span className="text-primary italic">revenue growth</span>, cut costs, and manage risk.
              </h1>
-             <p className="text-xl md:text-2xl text-slate-600 font-medium leading-relaxed max-w-2xl">
+             <p className="text-xl md:text-2xl text-slate-300 font-medium leading-relaxed max-w-3xl">
                Our deep domain expertise combined with technology innovation delivers measurable impact 
-               for global enterprises.
+               for global enterprises through data-driven precision.
              </p>
           </motion.div>
         </div>
@@ -66,6 +80,7 @@ const Industries = () => {
 
       {/* Industries Grid */}
       <section className="py-32 bg-white relative">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
         <div className="container mx-auto px-4 lg:px-12 relative z-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-y-24 gap-x-16">
             {industries.map((industry, index) => (

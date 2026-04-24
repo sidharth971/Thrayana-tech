@@ -23,21 +23,19 @@ const About = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-24 relative overflow-hidden flex items-center justify-center min-h-[60vh]">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div 
-            animate={{ x: [0, 50, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }} 
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] -z-10" 
+      <section className="pt-40 pb-32 relative overflow-hidden flex items-center justify-center min-h-[70vh] bg-slate-950">
+        {/* Background Image with Dark Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/images/about/hero-bg.png" 
+            alt="About Hero Background" 
+            className="w-full h-full object-cover opacity-70 grayscale"
           />
-          <motion.div 
-            animate={{ x: [0, -50, 0], y: [0, 50, 0], scale: [1, 1.3, 1] }} 
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px] -z-10" 
-          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/70 to-slate-950/40 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-transparent to-slate-950 z-10 opacity-40" />
         </div>
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 lg:px-12 relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -48,27 +46,28 @@ const About = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-primary/30 mb-8"
+              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-10"
             >
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-sm font-medium tracking-widest uppercase text-primary">Discover Our Journey</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white">Discover Our Journey</span>
             </motion.div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 mb-6 leading-tight">
-              Pioneering <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-gold-dark animate-pulse">Digital</span> Excellence
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 leading-[1.05] tracking-tight">
+              Pioneering <span className="text-primary italic">Digital</span> Excellence
             </h1>
             
-            <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
-              We engineer intelligent solutions that elevate businesses and redefine possibilities.
+            <p className="text-xl md:text-2xl text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
+              We engineer intelligent solutions that elevate businesses and redefine possibilities through elite craftsmanship.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Story & Overview Section */}
-      <section className="py-24 relative">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
+      <section className="py-24 relative bg-white">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <div className="container mx-auto px-4 lg:px-12 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
             
             {/* Left Image Side */}
             <div className="lg:col-span-5 relative order-2 lg:order-1 px-4 lg:px-8 py-8">
@@ -83,13 +82,13 @@ const About = () => {
 
                 {/* Main Image Container */}
                 <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-[0_0_50px_rgba(212,175,55,0.1)] z-10 bg-card border border-black/5">
-                  <div className="absolute inset-0 bg-primary/20 mix-blend-color z-10 transition-opacity duration-700 group-hover:opacity-0" />
+                  <div className="absolute inset-0 bg-primary/5 z-10 transition-opacity duration-700 group-hover:opacity-0" />
                   <img
                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070"
                     alt="Our Collaborative Team"
-                    className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-110"
+                    className="w-full h-full object-cover opacity-100 transition-all duration-700 ease-out group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent z-20 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent z-20 pointer-events-none" />
                 </div>
                 
                 {/* Glowing Orbs */}
@@ -139,16 +138,18 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-32 relative overflow-hidden">
-        {/* Animated background wave */}
-        <div className="absolute inset-0 bg-secondary/40" />
-        <motion.div 
-          animate={{ x: [0, -100, 0], opacity: [0.1, 0.3, 0.1] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 right-0 w-3/4 h-full bg-gradient-to-l from-primary/10 to-transparent pointer-events-none" 
-        />
+      <section className="py-32 relative overflow-hidden bg-slate-900">
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/images/about/mission-bg.png" 
+            alt="Mission Background" 
+            className="w-full h-full object-cover opacity-50 grayscale"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/70 to-slate-900 z-10" />
+        </div>
         
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 lg:px-12 relative z-20">
           <div className="grid md:grid-cols-2 gap-10">
             
             <AnimatedSection direction="right">
@@ -202,41 +203,47 @@ const About = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-32 relative">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-32 relative bg-slate-50">
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+        <div className="container mx-auto px-4 lg:px-12 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <AnimatedSection direction="up">
-              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-slate-200 mb-8 shadow-sm">
+              <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white border border-slate-200 mb-8 shadow-sm">
                 <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
-                <span className="text-primary font-bold tracking-widest uppercase text-sm">Our Competence</span>
+                <span className="text-primary font-black tracking-widest uppercase text-[10px]">Our Competence</span>
               </div>
-              <h2 className="text-4xl lg:text-6xl font-extrabold text-slate-900 mb-8">What Sets Us <span className="text-gradient">Apart</span></h2>
+              <h2 className="text-4xl lg:text-6xl font-extrabold text-slate-900 mb-8 tracking-tight">What Sets Us <span className="text-primary italic">Apart</span></h2>
               <p className="text-slate-600 text-xl font-medium leading-relaxed">
-                We deliver uncompromising excellence through deep-rooted expertise and relentless innovation in every single project.
+                We deliver uncompromising excellence through deep-rooted expertise and relentless innovation.
               </p>
             </AnimatedSection>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {whyChooseUs.map((item, index) => (
-              <AnimatedSection key={item.title} delay={index * 0.1}>
-                <motion.div 
+            {whyChooseUs.map((feature, index) => (
+              <AnimatedSection key={feature.title} delay={index * 0.1}>
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -10, scale: 1.02 }}
-                  className="group relative p-10 rounded-[2rem] bg-white border border-slate-200 hover:border-primary/40 transition-all duration-500 h-full overflow-hidden shadow-xl hover:shadow-primary/10"
+                  className="group relative p-10 rounded-[2.5rem] bg-white border border-slate-200 hover:border-primary/40 transition-all duration-500 h-full overflow-hidden shadow-xl hover:shadow-primary/10"
                 >
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-bl-full -mr-8 -mt-8 transition-transform duration-700 group-hover:scale-[2.5] ease-out" />
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-[5rem] -mr-12 -mt-12 transition-transform duration-700 group-hover:scale-[1.8] ease-out z-0" />
                   
-                  <div className="relative z-10 flex flex-col items-start gap-6">
+                  <div className="relative z-10 flex flex-col items-start gap-8">
                     <motion.div 
                       animate={{ y: [0, -6, 0] }}
                       transition={{ duration: 3, delay: index * 0.2, repeat: Infinity, ease: "easeInOut" }}
                       className="p-5 rounded-3xl bg-slate-50 border border-slate-200 group-hover:border-primary/50 group-hover:bg-primary/10 transition-colors duration-500 shadow-md"
                     >
-                      <item.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-300" />
+                      <feature.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-300" />
                     </motion.div>
                     <div>
-                      <h4 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors">{item.title}</h4>
-                      <p className="text-slate-600 text-lg leading-relaxed font-bold">{item.description}</p>
+                      <h4 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors">{feature.title}</h4>
+                      <p className="text-lg text-slate-600 font-medium leading-relaxed">{feature.description}</p>
                     </div>
                   </div>
                 </motion.div>
