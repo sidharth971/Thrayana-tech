@@ -1,251 +1,180 @@
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, MessageCircle, ChevronRight, Activity, Shield, Database, BarChart2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { ArrowRight } from "lucide-react";
+
+const bgImages = [
+  "/images/hero/bg1.png",
+  "/images/hero/bg2.png",
+  "/images/hero/bg3.png",
+];
+
+const heroContent = [
+  {
+    title: "Technology ",
+    highlight: "innovation",
+    subtitle: " that scales. AI-driven efficiency.",
+    description: "Thrayana Technologies brings the power of data science and AI to your business, transforming complex challenges into scalable engineering expertise."
+  },
+  {
+    title: "Engineering ",
+    highlight: "future-ready",
+    subtitle: " solutions. Digital growth at scale.",
+    description: "We help enterprises navigate the digital landscape with precision engineering, cloud-native architectures, and robust data strategies."
+  },
+  {
+    title: "Data-driven ",
+    highlight: "insights",
+    subtitle: " for growth. Unlock your potential.",
+    description: "Our advanced analytics and machine learning models turn raw data into strategic assets, propelling your business towards market leadership."
+  }
+];
 
 export const HeroSection = () => {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % 3);
-    }, 4000);
+      setCurrentImage((prev) => (prev + 1) % bgImages.length);
+    }, 6000); // Slightly longer for readability
     return () => clearInterval(timer);
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.215, 0.61, 0.355, 1],
+      },
+    },
+  };
+
+  const textAnimation = {
+    initial: { opacity: 0, x: 20 },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -20 },
+    transition: { duration: 0.8, ease: "easeInOut" }
+  };
+
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-background border-b border-slate-200/50 pt-20">
-      {/* Floating Ambient Light Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-grid-black/[0.02] bg-[size:50px_50px] z-0" />
-        <motion.div 
-          animate={{ x: [0, 50, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }} 
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-20 -left-20 w-[40rem] h-[40rem] bg-primary/10 rounded-full blur-[120px] -z-10" 
-        />
-        <motion.div 
-          animate={{ x: [0, -50, 0], y: [0, 50, 0], scale: [1, 1.3, 1] }} 
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/4 right-0 w-[30rem] h-[30rem] bg-accent/10 rounded-full blur-[120px] -z-10" 
-        />
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-900 pt-20 pb-20 md:pb-32">
+      {/* Dynamic Background Image Slider */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImage}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full"
+            style={{
+              backgroundImage: `url(${bgImages[currentImage]})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+        </AnimatePresence>
+        {/* Overlays for readability */}
+        <div className="absolute inset-0 bg-slate-950/70 md:bg-slate-950/60 backdrop-blur-[1px] md:backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-slate-950 via-slate-950/50 to-transparent" />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 py-24 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
-          <div className="z-10 text-center lg:text-left">
-            <motion.div 
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20 mb-8 mx-auto lg:mx-0 shadow-sm"
-            >
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-sm font-semibold tracking-widest uppercase text-primary">Welcome to Thrayana</span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight"
-            >
-              Providing you the best{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-gold-dark block mt-2">innovative guidance</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-xl md:text-2xl text-slate-600 font-medium mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
-            >
-              We bring the massive power of data science and AI to your business. Transform complex ideas into invincible digital ecosystems.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
-            >
-              <Link to="/services" className="btn-primary flex items-center gap-2 text-lg px-8 py-4 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] transition-all">
-                Our Services
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-
-            </motion.div>
-          </div>
-
-          {/* Right Content - Hero Illustration Slideshow */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative z-10 hidden lg:block"
-          >
-            <div className="relative w-full aspect-square max-w-lg mx-auto">
-              
-              {/* Outer Glowing Rings */}
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-4 rounded-full border border-primary/20 border-t-primary/60 border-l-primary/60 pointer-events-none"
-              />
-              <motion.div 
-                animate={{ rotate: -360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-12 rounded-full border border-accent/10 border-b-accent/50 border-r-accent/50 pointer-events-none"
-              />
-
-              {/* Central Floating Hardware Box Slideshow */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div 
-                  animate={{ y: [0, -15, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative w-[24rem] h-[16rem]"
-                >
-                  <AnimatePresence mode="wait">
-                    
-                    {/* Slide 0: Code Terminal */}
-                    {activeSlide === 0 && (
-                      <motion.div
-                        key="slide-0"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.5 }}
-                        className="absolute inset-0 flex items-center justify-center"
-                      >
-                        <div className="w-full h-full rounded-3xl bg-white/90 backdrop-blur-xl border-2 border-primary/10 p-6 relative overflow-hidden shadow-2xl">
-                          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[40px] -mr-16 -mt-16" />
-                          
-                          <div className="flex gap-2.5 mb-6 pb-4 border-b border-slate-100">
-                            <div className="w-3.5 h-3.5 rounded-full bg-red-500/80 shadow-[0_0_10px_rgba(239,68,68,0.5)]"></div>
-                            <div className="w-3.5 h-3.5 rounded-full bg-yellow-500/80 shadow-[0_0_10px_rgba(234,179,8,0.5)]"></div>
-                            <div className="w-3.5 h-3.5 rounded-full bg-green-500/80 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
-                          </div>
-                          
-                          <div className="font-mono text-xs md:text-sm leading-loose tracking-wide z-10 relative">
-                            <div className="text-primary italic">const</div> <div className="inline text-slate-900 font-bold ml-2">thrayana</div> = {"{"}
-                            <div className="pl-6 border-l-2 border-primary/20 ml-2 mt-2 space-y-2">
-                              <div className="flex items-center"><ChevronRight className="w-3 h-3 mr-2 text-primary" /><span className="text-accent/80 font-semibold">innovative</span>: <span className="text-emerald-400 font-bold ml-2">true</span>,</div>
-                              <div className="flex items-center"><ChevronRight className="w-3 h-3 mr-2 text-primary" /><span className="text-accent/80 font-semibold">dataPowered</span>: <span className="text-emerald-400 font-bold ml-2">true</span>,</div>
-                              <div className="flex items-center"><ChevronRight className="w-3 h-3 mr-2 text-primary" /><span className="text-accent/80 font-semibold">guidance</span>: <span className="text-primary font-bold ml-2">"expert"</span></div>
-                            </div>
-                            <div className="mt-2">{"};"}</div>
-                          </div>
-                        </div>
-
-                        <motion.div 
-                          animate={{ y: [0, -10, 0] }}
-                          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                          className="absolute -top-6 -right-6 w-16 h-16 rounded-2xl bg-secondary border border-primary/30 flex items-center justify-center shadow-2xl backdrop-blur-md"
-                        >
-                          <span className="text-2xl drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">🤖</span>
-                        </motion.div>
-
-                        <motion.div 
-                          animate={{ y: [0, 10, 0] }}
-                          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                          className="absolute -bottom-6 -left-6 w-16 h-16 rounded-2xl bg-secondary border border-accent/30 flex items-center justify-center shadow-2xl backdrop-blur-md"
-                        >
-                          <span className="text-2xl drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">💡</span>
-                        </motion.div>
-                      </motion.div>
-                    )}
-
-                    {/* Slide 1: AI Analytics Board */}
-                    {activeSlide === 1 && (
-                      <motion.div
-                        key="slide-1"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.5 }}
-                        className="absolute inset-0 flex items-center justify-center"
-                      >
-                        <div className="w-full h-full rounded-3xl bg-card/60 backdrop-blur-2xl border-2 border-accent/30 p-6 relative overflow-hidden shadow-[0_0_50px_rgba(255,200,80,0.15)] flex flex-col">
-                          
-                          <div className="flex items-center justify-between mb-4 pb-4 border-b border-slate-100">
-                            <span className="text-accent font-semibold tracking-wide flex items-center gap-2"><BarChart2 className="w-4 h-4"/> Live AI Analytics</span>
-                            <span className="text-emerald-400 text-xs font-bold tracking-widest animate-pulse">● SYNCED</span>
-                          </div>
-                          
-                          <div className="flex-1 flex items-end justify-between gap-3 px-2 pt-2">
-                            {[40, 70, 45, 90, 65, 80, 50].map((height, i) => (
-                              <motion.div 
-                                key={i}
-                                initial={{ height: 0 }}
-                                animate={{ height: `${height}%` }}
-                                transition={{ duration: 1, delay: i * 0.1, type: "spring" }}
-                                className="w-full bg-gradient-to-t from-primary/20 to-accent/80 rounded-t-lg relative group"
-                              >
-                                <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity">{height}k</div>
-                              </motion.div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <motion.div 
-                          animate={{ y: [0, -10, 0] }}
-                          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                          className="absolute -top-6 -right-6 w-16 h-16 rounded-2xl bg-secondary border border-accent/30 flex items-center justify-center shadow-2xl backdrop-blur-md"
-                        >
-                          <Activity className="w-7 h-7 text-primary drop-shadow-sm" />
-                        </motion.div>
-                      </motion.div>
-                    )}
-
-                    {/* Slide 2: Cybersecurity Core */}
-                    {activeSlide === 2 && (
-                      <motion.div
-                        key="slide-2"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.5 }}
-                        className="absolute inset-0 flex items-center justify-center"
-                      >
-                        <div className="w-full h-full rounded-3xl bg-card/60 backdrop-blur-2xl border-2 border-emerald-500/30 p-6 relative overflow-hidden shadow-[0_0_50px_rgba(16,185,129,0.15)] flex flex-col items-center justify-center">
-                          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-500/10 via-transparent to-transparent opacity-50" />
-                          
-                          <div className="relative z-10 w-24 h-24 rounded-full border-4 border-emerald-500/20 flex items-center justify-center mb-6">
-                            <motion.div 
-                               animate={{ rotate: 360 }}
-                               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                               className="absolute inset-0 rounded-full border-t-4 border-emerald-400" 
-                            />
-                            <motion.div
-                               animate={{ scale: [1, 1.1, 1] }}
-                               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                            >
-                               <Shield className="w-10 h-10 text-emerald-400 drop-shadow-[0_0_15px_rgba(52,211,153,0.8)]" />
-                            </motion.div>
-                          </div>
-                          
-                          <h3 className="text-emerald-600 font-extrabold tracking-widest text-lg">SHIELD ACTIVE</h3>
-                          <p className="text-slate-500 text-xs mt-2 font-mono tracking-widest uppercase">Enterprise grade security</p>
-                        </div>
-
-                        <motion.div 
-                          animate={{ y: [0, 10, 0] }}
-                          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                          className="absolute -bottom-6 -left-6 w-16 h-16 rounded-2xl bg-secondary border border-emerald-500/30 flex items-center justify-center shadow-2xl backdrop-blur-md"
-                        >
-                          <Database className="w-7 h-7 text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.5)]" />
-                        </motion.div>
-                      </motion.div>
-                    )}
-
-                  </AnimatePresence>
-                </motion.div>
-              </div>
+      <div className="container mx-auto px-4 lg:px-12 relative z-10">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-4xl"
+        >
+          <motion.div variants={itemVariants} className="mb-6 md:mb-8">
+            <div className="inline-flex items-center gap-3 px-1 py-1 pr-4 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-lg">
+              <span className="px-2 md:px-3 py-1 rounded-full bg-primary text-[8px] md:text-[10px] font-black uppercase tracking-widest text-primary-foreground">New</span>
+              <span className="text-[10px] md:text-xs font-bold text-white/90 uppercase tracking-widest">Innovation that scales</span>
             </div>
           </motion.div>
+          
+          <div className="relative overflow-hidden min-h-[300px] md:min-h-auto">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentImage}
+                {...textAnimation}
+              >
+                <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold text-white leading-[1.1] md:leading-[1.05] tracking-tight mb-6 md:mb-8">
+                  {heroContent[currentImage].title}
+                  <span className="text-primary font-black">{heroContent[currentImage].highlight}</span>
+                  {heroContent[currentImage].subtitle}
+                </h1>
 
-        </div>
+                <p className="text-base md:text-xl lg:text-2xl text-white/80 font-medium mb-8 md:mb-12 max-w-2xl leading-relaxed">
+                  {heroContent[currentImage].description}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 md:gap-6">
+            <Link 
+              to="/services" 
+              className="btn-primary text-base md:text-lg px-8 md:px-10 py-4 md:py-5 flex items-center justify-center gap-3 group shadow-2xl shadow-primary/20"
+            >
+              Our Capabilities
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link 
+              to="/contact" 
+              className="px-8 md:px-10 py-4 md:py-5 rounded-full border-2 border-white/30 text-white font-semibold text-base md:text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm text-center"
+            >
+              Explore Solutions
+            </Link>
+          </motion.div>
+
+          <motion.div 
+            variants={itemVariants} 
+            className="mt-12 md:mt-20 flex flex-wrap items-center gap-8 md:gap-12 opacity-70"
+          >
+            <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-white/60">Trusted by innovators</span>
+          </motion.div>
+        </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 md:gap-3 z-10 hidden sm:flex"
+      >
+        <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-[0.3em] text-white/60">Scroll</span>
+        <div className="w-5 md:w-6 h-8 md:h-10 border-2 border-white/30 rounded-full flex justify-center p-1 md:p-1.5 backdrop-blur-sm">
+          <motion.div 
+            animate={{ 
+              y: [0, 10, 0],
+              opacity: [1, 0.5, 1]
+            }}
+            transition={{ 
+              duration: 2, 
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="w-1 h-1.5 md:h-2 bg-primary rounded-full shadow-[0_0_8px_hsla(43,100%,50%,0.5)]"
+          />
+        </div>
+      </motion.div>
     </section>
   );
-};
+};

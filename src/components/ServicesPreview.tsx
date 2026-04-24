@@ -9,67 +9,67 @@ const services = [
     icon: Code,
     title: "Application Development",
     description: "Custom software solutions architected for speed and customized to your brutal business demands.",
+    imageUrl: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&q=80&w=800",
   },
   {
     icon: Globe,
     title: "Web Development",
     description: "Robust, responsive, and scalable web apps engineered to guarantee dominating user experiences.",
+    imageUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
   },
   {
     icon: Smartphone,
     title: "Mobile App Development",
     description: "Flawless native and cross-platform mobile ecosystems for iOS and Android platforms.",
+    imageUrl: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800",
   },
   {
     icon: Bot,
     title: "AI & Automation",
     description: "Intelligent enterprise-scale automation propelled by breakthrough machine learning pipelines.",
+    imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
   },
   {
     icon: Cloud,
     title: "Cloud & DevOps",
     description: "Invincible cloud infrastructure and strict DevOps practices for lightning-fast deployments.",
+    imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
   },
   {
     icon: Database,
     title: "Data Analytics",
     description: "Transforming chaotic raw data into pure, decisive strategic insights via powerful analytics.",
+    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
   },
 ];
 
 export const ServicesPreview = () => {
   return (
-    <section className="py-32 bg-background relative overflow-hidden border-b border-black/5">
-      {/* Golden Grid Pattern Background */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute top-0 left-0 w-full h-full" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, #D4AF37 2px, transparent 2px),
-                           radial-gradient(circle at 75% 75%, #FFC850 2px, transparent 2px)`,
-          backgroundSize: '80px 80px'
-        }} />
-      </div>
+    <section className="py-32 bg-slate-50 relative overflow-hidden border-b border-slate-100">
+      {/* Background Decorative Elements */}
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-[30rem] h-[30rem] bg-slate-200/40 rounded-full blur-[120px] pointer-events-none" />
+      
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 2px, transparent 2px)', backgroundSize: '60px 60px' }} />
 
-      {/* Floating Center Glow */}
-      <motion.div 
-        animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] rounded-full bg-primary/10 blur-[150px] pointer-events-none" 
-      />
+      <div className="container mx-auto px-4 lg:px-12 relative z-10">
+        <div className="mb-20">
+          <SectionTitle
+            subtitle="What We Offer"
+            title="Our Premium Services"
+            description="We deliver aggressive, uncompromised tech infrastructure to ensure you lead, not follow, in your sector."
+          />
+        </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <SectionTitle
-          subtitle="What We Offer"
-          title="Our Premium Services"
-          description="We deliver aggressive, uncompromised tech infrastructure to ensure you lead, not follow, in your sector."
-        />
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}
               icon={service.icon}
               title={service.title}
               description={service.description}
+              imageUrl={service.imageUrl}
               index={index}
             />
           ))}
@@ -80,14 +80,14 @@ export const ServicesPreview = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-center mt-16"
+          className="text-center mt-20"
         >
-          <Link to="/services" className="btn-outline inline-flex items-center gap-3 text-lg px-8 py-4 border-2 border-primary/40 hover:bg-primary/10 hover:border-primary transition-all">
-            Explore All Services
-            <ArrowRight className="w-5 h-5" />
+          <Link to="/services" className="btn-outline inline-flex items-center gap-4 text-lg px-10 py-5 hover:bg-slate-900 hover:text-white transition-all duration-300">
+            Explore All Capabilities
+            <ArrowRight className="w-6 h-6" />
           </Link>
         </motion.div>
       </div>
     </section>
   );
-};
+};

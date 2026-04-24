@@ -1,54 +1,86 @@
 import { CounterCard } from "./CounterCard";
 import { AnimatedSection } from "./AnimatedSection";
 import { motion } from "framer-motion";
+import { Smile, Zap, Rocket, Package } from "lucide-react";
 
 const stats = [
-  { value: 150, suffix: "+", label: "Projects Completed" },
-  { value: 50, suffix: "+", label: "Happy Clients" },
-  { value: 10, suffix: "+", label: "Years Experience" },
-  { value: 24, suffix: "/7", label: "Support Available" },
+  { 
+    value: 98, 
+    suffix: "%", 
+    label: "Client satisfaction rate across our global enterprise partnerships.",
+    icon: Smile
+  },
+  { 
+    value: 45, 
+    suffix: "%", 
+    label: "Average increase in operational efficiency through AI automation.",
+    icon: Zap
+  },
+  { 
+    value: 10, 
+    suffix: "x", 
+    label: "Faster deployment cycles using our cloud-native architectures.",
+    icon: Rocket
+  },
+  { 
+    value: 500, 
+    suffix: "+", 
+    label: "Scalable digital solutions delivered to industry-leading clients.",
+    icon: Package
+  },
 ];
 
 export const StatsSection = () => {
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-secondary/30" />
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
+    <section className="py-20 md:py-32 relative overflow-hidden bg-slate-950">
+      {/* Background Image with Dark Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/images/stats-bg.png" 
+          alt="Stats Background" 
+          className="w-full h-full object-cover opacity-40 grayscale"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-br from-slate-950 via-slate-950/80 to-primary/10 z-10" />
+      </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <AnimatedSection direction="up">
-          <div className="bg-white rounded-[3rem] p-10 md:p-16 border border-slate-200 shadow-2xl relative overflow-hidden">
-            {/* Ambient inner glows */}
-            <motion.div 
-              animate={{ opacity: [0.1, 0.3, 0.1], scale: [1, 1.1, 1] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-32 -right-32 w-64 h-64 bg-primary/20 rounded-full blur-[60px] pointer-events-none" 
-            />
-            <motion.div 
-              animate={{ opacity: [0.1, 0.3, 0.1], scale: [1, 1.2, 1] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-32 -left-32 w-64 h-64 bg-accent/20 rounded-full blur-[60px] pointer-events-none" 
-            />
+      <div className="container mx-auto px-4 lg:px-12 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 md:gap-16 lg:gap-24 items-center">
+          
+          <div className="lg:col-span-4">
+              <AnimatedSection direction="right">
+                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-6 md:mb-8">
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-white">Business Impact</span>
+                </div>
+                <h2 className="text-3xl md:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 md:mb-8">
+                  Proven business impact <span className="text-primary italic">across industries.</span>
+                </h2>
+                <p className="text-lg md:text-xl text-slate-300 font-medium leading-relaxed">
+                  We deliver measurable results by combining deep engineering expertise with 
+                  cutting-edge technology innovation.
+                </p>
+                <div className="mt-8 md:mt-12 w-20 md:w-24 h-1 md:h-1.5 bg-primary rounded-full" />
+             </AnimatedSection>
+          </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 relative z-10 break-words">
+          <div className="lg:col-span-8">
+            <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
               {stats.map((stat, index) => (
-                <div key={stat.label} className="relative group">
-                  {/* Divider line between stats on desktop */}
-                  {index !== 0 && (
-                    <div className="hidden md:block absolute left-0 top-1/4 bottom-1/4 w-px bg-slate-200 group-hover:bg-primary/30 transition-colors duration-500" />
-                  )}
+                <div key={stat.label}>
                   <CounterCard
                     value={stat.value}
                     suffix={stat.suffix}
                     label={stat.label}
                     index={index}
+                    icon={stat.icon}
                   />
                 </div>
               ))}
             </div>
           </div>
-        </AnimatedSection>
+
+        </div>
       </div>
     </section>
   );
-};
+};

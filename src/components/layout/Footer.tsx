@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Mail, ArrowUp } from "lucide-react";
+import { MapPin, Mail, Linkedin, Twitter, Github, ArrowUp } from "lucide-react";
 import { Logo } from "./Logo";
 
 const footerLinks = {
@@ -10,11 +10,16 @@ const footerLinks = {
     { name: "Contact Us", path: "/contact" },
   ],
   services: [
-    { name: "Web Development", path: "/services#web-development" },
-    { name: "Mobile Apps", path: "/services#mobile-app-development" },
-    { name: "AI & Automation", path: "/services#ai-&-automation" },
-    { name: "Cloud & DevOps", path: "/services#cloud-&-devops" },
+    { name: "Software Engineering", path: "/services#software" },
+    { name: "AI & Data Science", path: "/services#ai" },
+    { name: "Digital Strategy", path: "/services#digital" },
+    { name: "Cloud Infrastructure", path: "/services#cloud" },
   ],
+  legal: [
+    { name: "Privacy Policy", path: "/privacy" },
+    { name: "Terms of Service", path: "/terms" },
+    { name: "Cookie Policy", path: "/cookies" },
+  ]
 };
 
 export const Footer = () => {
@@ -23,33 +28,38 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="section-dark pt-20 pb-8">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <footer className="bg-slate-900 pt-24 pb-12 text-white">
+      <div className="container mx-auto px-4 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20">
+          
           {/* Brand Column */}
-          <div>
-            <Link to="/" className="flex items-center gap-3 mb-6">
-              <Logo className="w-12 h-12" />
+          <div className="lg:col-span-4">
+            <Link to="/" className="flex items-center gap-3 mb-8 group">
+              <Logo className="w-10 h-10 group-hover:rotate-12 transition-transform duration-500" />
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-white">THRAYANA</span>
-                <span className="text-xs text-white/70 tracking-wider">TECHNOLOGIES</span>
+                <span className="text-2xl font-black tracking-tighter">THRAYANA</span>
+                <span className="text-[10px] font-black text-primary tracking-[0.4em] uppercase -mt-1">Technologies</span>
               </div>
             </Link>
-            <p className="text-white/70 text-sm leading-relaxed mb-6">
-              Empowering businesses with innovative technology solutions. We transform ideas into powerful digital experiences.
+            <p className="text-slate-400 text-lg font-medium leading-relaxed mb-8 max-w-sm">
+              Engineering the future of enterprise technology through innovation, data science, and scalable AI solutions.
             </p>
+            <div className="flex gap-4">
+               {[Linkedin, Twitter, Github].map((Icon, i) => (
+                  <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-slate-900 transition-all duration-300">
+                     <Icon className="w-5 h-5" />
+                  </a>
+               ))}
+            </div>
           </div>
 
-          {/* Company Links */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-6">Company</h4>
-            <ul className="space-y-3">
+          {/* Links Columns */}
+          <div className="lg:col-span-2">
+            <h4 className="text-sm font-black uppercase tracking-[0.2em] mb-8 text-white">Company</h4>
+            <ul className="space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-white/70 hover:text-primary transition-colors text-sm"
-                  >
+                  <Link to={link.path} className="text-slate-400 hover:text-primary transition-colors font-bold text-sm">
                     {link.name}
                   </Link>
                 </li>
@@ -57,16 +67,12 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Services Links */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-6">Services</h4>
-            <ul className="space-y-3">
+          <div className="lg:col-span-3">
+            <h4 className="text-sm font-black uppercase tracking-[0.2em] mb-8 text-white">Capabilities</h4>
+            <ul className="space-y-4">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-white/70 hover:text-primary transition-colors text-sm"
-                  >
+                  <Link to={link.path} className="text-slate-400 hover:text-primary transition-colors font-bold text-sm">
                     {link.name}
                   </Link>
                 </li>
@@ -74,24 +80,21 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-6">Contact Us</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-white/70 text-sm">
-                  Bangalore, Karnataka, India
+          {/* Contact Column */}
+          <div className="lg:col-span-3">
+            <h4 className="text-sm font-black uppercase tracking-[0.2em] mb-8 text-white">Connect</h4>
+            <ul className="space-y-6">
+              <li className="flex items-start gap-4">
+                <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <span className="text-slate-400 font-bold text-sm leading-relaxed">
+                  Enterprise Innovation Hub,<br />
+                  Bangalore, KA 560001, India
                 </span>
               </li>
-
-              <li className="flex items-center gap-3">
+              <li className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a
-                  href="mailto:sales@thrayana.com"
-                  className="text-white/70 hover:text-primary transition-colors text-sm"
-                >
-                  sales@thrayana.com
+                <a href="mailto:contact@thrayana.com" className="text-slate-400 hover:text-primary transition-colors font-bold text-sm">
+                  contact@thrayana.com
                 </a>
               </li>
             </ul>
@@ -99,15 +102,28 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/70 text-sm">
-            © {new Date().getFullYear()} Thrayana Technologies. All rights reserved.
-          </p>
-          <button
-            onClick={scrollToTop}
-            className="w-12 h-12 rounded-full gradient-cta flex items-center justify-center hover:glow-coral transition-all duration-300"
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex flex-wrap items-center justify-center gap-8">
+             <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">
+               © {new Date().getFullYear()} Thrayana Technologies
+             </p>
+             <div className="flex gap-6">
+                {footerLinks.legal.map(link => (
+                  <Link key={link.name} to={link.path} className="text-slate-500 hover:text-white text-[10px] font-black uppercase tracking-widest transition-colors">
+                    {link.name}
+                  </Link>
+                ))}
+             </div>
+          </div>
+          
+          <button 
+             onClick={scrollToTop}
+             className="group flex items-center gap-3 text-slate-500 hover:text-primary transition-colors"
           >
-            <ArrowUp className="w-5 h-5 text-white" />
+             <span className="text-[10px] font-black uppercase tracking-[0.2em]">Back to top</span>
+             <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+                <ArrowUp className="w-4 h-4" />
+             </div>
           </button>
         </div>
       </div>
