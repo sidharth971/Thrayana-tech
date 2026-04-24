@@ -33,7 +33,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20">
           
           {/* Brand Column */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-3">
             <Link to="/" className="flex items-center gap-3 mb-8 group">
               <Logo className="w-10 h-10 group-hover:rotate-12 transition-transform duration-500" />
               <div className="flex flex-col">
@@ -75,20 +75,21 @@ export const Footer = () => {
           </div>
 
           {/* Contact Column */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-4">
             <h4 className="text-sm font-black uppercase tracking-[0.2em] mb-8 text-white">Connect</h4>
             <ul className="space-y-6">
               <li className="flex items-start gap-4">
                 <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                <span className="text-slate-400 font-bold text-sm leading-relaxed">
-                  Enterprise Innovation Hub,<br />
-                  Bangalore, KA 560001, India
+                <span className="text-slate-400 font-bold text-sm leading-relaxed max-w-[280px]">
+                  Thrayana Private Limited<br />
+                  AS16, Ittina Neela Apartments,<br />
+                  Phase 2, Electronic City, BLR 560100
                 </span>
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="mailto:contact@thrayana.com" className="text-slate-400 hover:text-primary transition-colors font-bold text-sm">
-                  contact@thrayana.com
+                <a href="mailto:sales@thrayana.com" className="text-slate-400 hover:text-primary transition-colors font-bold text-sm">
+                  sales@thrayana.com
                 </a>
               </li>
             </ul>

@@ -12,7 +12,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Our Office",
-    details: ["A BLK, Ittina Limited Glass Factory Layout", "Electronic City Phase 2, Bangalore", "Karnataka 560100, India"],
+    details: ["Thrayana Private Limited", "AS16, Ittina Neela Apartments, Phase 2", "Glass Factory Layout, Electronic City", "Bengaluru, Karnataka 560100"],
   },
   {
     icon: Mail,
@@ -245,9 +245,9 @@ const Contact = () => {
                 </div>
                 <h3 className="text-3xl font-bold text-foreground mb-4">Location</h3>
                 <div className="space-y-2">
-                  <p className="text-xl font-semibold text-foreground">A BLK, Ittina Limited</p>
-                  <p className="text-muted-foreground text-md">Glass Factory Layout, Electronic City Phase 2</p>
-                  <p className="text-muted-foreground text-md">Bangalore Urban, Karnataka 560100</p>
+                  <p className="text-xl font-extrabold text-slate-900">Thrayana Private Limited</p>
+                  <p className="text-slate-600 font-bold text-lg leading-tight">AS16, Ittina Neela Apartments, Phase 2</p>
+                  <p className="text-slate-600 font-bold text-lg">Electronic City, Bengaluru 560100</p>
                 </div>
                 <div className="mt-8 pt-8 border-t border-border w-full flex flex-col items-center lg:items-start gap-4">
                   <p className="text-sm text-muted-foreground italic">
@@ -260,7 +260,7 @@ const Contact = () => {
               <div className="h-[400px] lg:h-auto min-h-[400px] relative">
                 <iframe
                   title="Thrayana Technologies Location"
-                  src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Thrayana%20Technologies,%20Electronic%20City%20Phase%202,%20Bangalore&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                  src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Thrayana%20Private%20Limited,%20AS16,%20Ittina%20Neela%20Apartments,%20Phase%202,%20Electronic%20City,%20Bengaluru&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
